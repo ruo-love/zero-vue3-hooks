@@ -12,7 +12,7 @@ import { Ref, ref } from "vue";
  * toggle(2) // active.value = 2
  * toggle(1) // active.value = 1
  */
-export default function useToggle<T>(
+export  function useToggle<T>(
   values: [T, T]
 ): [Ref<T>, (value?: T) => void] {
   const active = ref<T>(values[0]) as Ref<T>;

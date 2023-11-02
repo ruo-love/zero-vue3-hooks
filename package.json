@@ -1,7 +1,14 @@
 {
   "name": "@zrcode/v3hooks",
-  "version": "0.0.4",
-  "main": "dist/lib/v3hooks.es.js",
+  "version": "0.0.7",
+  "module": "./dist/lib/v3hooks.es.js",
+  "main": "./dist/lib/v3hooks.umd.js",
+  "exports": {
+    ".": {
+      "import": "./dist/lib/v3hooks.es.js",
+      "require": "./dist/lib/v3hooks.umd.cjs"
+    }
+  },
   "types": "dist/types/index.d.ts",
   "keywords": [
     "vue3 hooks"
@@ -23,6 +30,11 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/plugin-transform-runtime": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/runtime": "^7.23.2",
+    "@rollup/plugin-babel": "^6.0.4",
     "@types/node": "^20.7.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "typescript": "^5.0.2",

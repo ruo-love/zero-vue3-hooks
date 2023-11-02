@@ -19,8 +19,7 @@
 </template>
 <script setup lang="ts">
 import { reactive } from "vue";
-import useToggle from "./package/hooks/useToggle";
-import useValid from "./package/hooks/useValide";
+import { useToggle, useValid } from "./package/index";
 const [show, toggle] = useToggle<boolean>([true, false]);
 const formData = reactive({
   name: "",

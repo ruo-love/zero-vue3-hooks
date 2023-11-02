@@ -36,10 +36,17 @@ import { reactive } from "vue";
  * phone:{prop:'phone',valid:false,message:'请输入正确的手机号'}
  * }
  */
-export default function useValid(
+export function useValid(
   rules: Rules
 ): [IValidResult, triggerValidProp, triggerValidAll] {
   const validResult = reactive<IValidResult>({});
+  Object.keys(rules).forEach((prop) => {
+    validResult[prop] = {
+      prop,
+      valid: true,
+      message: "校验通过",
+    };
+  });
   function triggerValidProp(prop: string, v: any): IValidData {
     const validData = reactive<IValidData>({
       prop: "",
@@ -69,7 +76,6 @@ export default function useValid(
         }
         if (r.pattern) {
           const valid = r.pattern.test(v);
-          console.log(valid, "valid");
           if (!valid) {
             faild(r.message);
             break;
