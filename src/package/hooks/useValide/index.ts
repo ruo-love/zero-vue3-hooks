@@ -1,24 +1,11 @@
+import {
+  IValidData,
+  IValidResult,
+  Rules,
+  triggerValidAll,
+  triggerValidProp,
+} from "@/package/types/useValid";
 import { reactive } from "vue";
-
-interface IValidData {
-  prop: string;
-  valid: boolean;
-  message: string;
-}
-type Rule = {
-  required?: boolean;
-  pattern?: RegExp;
-  message: string;
-  validator?: (v: string) => boolean;
-};
-interface Rules {
-  [key: string]: Array<Rule>;
-}
-interface IValidResult {
-  [key: keyof Rules]: IValidData;
-}
-type triggerValidProp = (prop: string, v: any) => IValidData;
-type triggerValidAll = (data: any) => [boolean, Array<IValidData>];
 
 // 帮我写文档注释
 /**

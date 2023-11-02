@@ -1,8 +1,19 @@
 {
-  "name": "@zrcode/zero_hook",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "@zrcode/v3hooks",
+  "version": "0.0.4",
+  "main": "dist/lib/v3hooks.es.js",
+  "types": "dist/types/index.d.ts",
+  "keywords": [
+    "vue3 hooks"
+  ],
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
