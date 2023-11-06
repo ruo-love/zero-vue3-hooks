@@ -15,11 +15,14 @@
     />
     {{ validResult }}
     <button @click="valid">valid all</button>
+    <p>{{ type }}----{{ size }}</p>
   </div>
 </template>
 <script setup lang="ts">
 import { reactive } from "vue";
-import { useToggle, useValid } from "./package/index";
+import { useToggle, useValid, useViewSize } from "./package/index";
+const [type, size] = useViewSize();
+
 const [show, toggle] = useToggle<boolean>([true, false]);
 const formData = reactive({
   name: "",
@@ -32,9 +35,9 @@ const rules = {
     { pattern: /^1[3456789]\d{9}$/, message: "请输入正确的手机号" },
   ],
 };
-const [validResult, triggerValidProp,triggerValidAll] = useValid(rules);
+const [validResult, triggerValidProp, triggerValidAll] = useValid(rules);
 function valid() {
-  const c = triggerValidAll( formData);
+  const c = triggerValidAll(formData);
   console.log(c);
 }
 </script>
