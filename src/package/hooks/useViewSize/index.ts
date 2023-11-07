@@ -1,8 +1,6 @@
+import { IConfig } from "@/package/types/useView";
 import { ComputedRef, computed, onBeforeUnmount, reactive } from "vue";
 
-interface IConfig {
-  [key: string]: number;
-}
 export function useViewSize(
   config: IConfig = {
     xm: 520,

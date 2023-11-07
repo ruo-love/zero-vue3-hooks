@@ -1,6 +1,6 @@
 {
   "name": "@zrcode/v3hooks",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "module": "./dist/lib/v3hooks.es.js",
   "main": "./dist/lib/v3hooks.umd.js",
   "exports": {
