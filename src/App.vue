@@ -1,7 +1,8 @@
 <template>
   <div>zero hooks{{ show }}</div>
-  <button @click="() => toggle(false)">toggle</button>
+  <button @click="() => toggle()">toggle</button>
   <div>
+    <div style="width: 100px; height: 100px;" v-wrap-loading="show">dsadsadas</div>
     <input
       type="text"
       v-model="formData.name"
@@ -23,7 +24,7 @@ import { reactive } from "vue";
 import { useToggle, useValid, useViewSize } from "./package/index";
 const [type, size] = useViewSize();
 
-const [show, toggle] = useToggle<boolean>([true, false]);
+const [show, toggle] = useToggle<boolean>([false, true]);
 const formData = reactive({
   name: "",
   phone: "",
