@@ -36,6 +36,7 @@ import { reactive } from "vue";
  * phone:{prop:'phone',valid:false,message:'请输入正确的手机号'}
  * }
  */
+
 export function useValid(
   rules: Rules
 ): [IValidResult, triggerValidProp, triggerValidAll] {
@@ -88,8 +89,9 @@ export function useValid(
     }
     return validData;
   }
-  function triggerValidAll(data: {
-    [key: keyof Rules]: any;
+
+  function triggerValidAll<T>(data: {
+    [key in keyof T]: any;
   }): [boolean, Array<IValidData>] {
     const validData: Array<IValidData> = [];
     const pass = !validData.some((item) => item.valid === false);

@@ -2,7 +2,9 @@
   <div>zero hooks{{ show }}</div>
   <button @click="() => toggle()">toggle</button>
   <div>
-    <div style="width: 100px; height: 100px;" v-wrap-loading="show">dsadsadas</div>
+    <div style="width: 100px; height: 100px" v-wrap-loading="show">
+      dsadsadas
+    </div>
     <input
       type="text"
       v-model="formData.name"
@@ -38,7 +40,10 @@ const rules = {
 };
 const [validResult, triggerValidProp, triggerValidAll] = useValid(rules);
 function valid() {
-  const c = triggerValidAll(formData);
+  const c = triggerValidAll({
+    name: formData.name,
+    phone: formData.phone,
+  });
   console.log(c);
 }
 </script>

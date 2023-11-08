@@ -16,4 +16,7 @@ export interface IValidResult {
   [key: keyof Rules]: IValidData;
 }
 export type triggerValidProp = (prop: string, v: any) => IValidData;
-export type triggerValidAll = (data: any) => [boolean, Array<IValidData>];
+export type triggerValidAll = <T>(data: { [key in keyof T]: any }) => [
+  boolean,
+  Array<IValidData>
+];
