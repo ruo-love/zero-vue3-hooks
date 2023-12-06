@@ -94,11 +94,12 @@ export function useValid(
     [key in keyof T]: any;
   }): [boolean, Array<IValidData>] {
     const validData: Array<IValidData> = [];
-    const pass = !validData.some((item) => item.valid === false);
+    let pass = !validData.some((item) => item.valid === false);
     for (const prop in data) {
       const valid = triggerValidProp(prop, data[prop]);
       validData.push(valid);
     }
+    pass = !validData.some((item) => item.valid === false);
     return [pass, validData];
   }
   return [validResult, triggerValidProp, triggerValidAll];
